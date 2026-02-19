@@ -1,51 +1,47 @@
-import java.util.Scanner;
-
-/*Practical 9
-
-Problem Statement:
-Define a Java class named Rectangle. It should have two double data fields: width and height,
-both with a default value of 1. Implement a no-argument constructor and a constructor that
-takes width and height as parameters. Include methods getArea() and getPerimeter() that
-return the calculated area and perimeter respectively.*/
-
-class Rectangle
-{
-
+class Rectangle {
     double width;
     double height;
 
-    Rectangle(double w, double h) 
-	{
-        	width = w;
-       		height = h;
-    	}
+    Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
 
-       void getArea() 
-	{
-        System.out.println("Area of Rectangle = " + (width * height));
-    	}
+    double getArea() {
+        return width * height;
+    }
 
-	void getPerimeter() 
-	{
-        System.out.println("Perimeter of Rectangle = " + (2 * (width + height)));
-    	}
+    double getPerimeter() {
+        return 2 * (width + height);
+    }
 
-        public static void main(String[] args) 
-	{
-        Scanner sc = new Scanner(System.in);
-	
+    public static void main(String[] args) {
+        Rectangle r1 = new Rectangle(4, 40);
+        Rectangle r2 = new Rectangle(3.5, 35.9);
+
 	System.out.println("240390107046");
-        System.out.print("Enter width: ");
-        double w = sc.nextDouble();
+        System.out.println("Rectangle 1:");
+        System.out.println("Width: " + r1.width);
+        System.out.println("Height: " + r1.height);
+        System.out.println("Area: " + r1.getArea());
+        System.out.println("Perimeter: " + r1.getPerimeter());
 
-        System.out.print("Enter height: ");
-        double h = sc.nextDouble();
+        System.out.println();
 
-        Rectangle r = new Rectangle(w, h);
+        System.out.println("Rectangle 2:");
+        System.out.println("Width: " + r2.width);
+        System.out.println("Height: " + r2.height);
+        System.out.println("Area: " + r2.getArea());
+        System.out.println("Perimeter: " + r2.getPerimeter());
 
-        r.getArea();
-        r.getPerimeter();
+        System.out.println();
 
-        sc.close();
+        if (r1.getArea() > r2.getArea()) {
+            System.out.println("Rectangle 1 has larger area.");
+        } else if (r1.getArea() < r2.getArea()) {
+            System.out.println("Rectangle 2 has larger area.");
+        } else {
+            System.out.println("Both rectangles have equal area.");
+        }
     }
 }
